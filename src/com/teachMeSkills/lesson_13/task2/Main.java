@@ -18,36 +18,23 @@ public class Main {
     public static void main(String[] args) {
 
         Scanner scanner = new Scanner(System.in);
+        System.out.println("Введите 1 или 2");
         String n = scanner.next();
 
-        if (n.equals("1")) {
-
-            FunctionalClass<String> reverseStr = (string) -> {
-                StringBuffer buffer = new StringBuffer(string);
-                buffer.reverse();
-                return String.valueOf(buffer);
-            };
-
+        if (n.equals("1")){
             System.out.println("Введите любое слово");
-            String str = scanner.next();
-            System.out.println(reverseStr.getResult(str));
+            String s = scanner.next();
+            Object obj = Calculate.getResultInputStr(n, s);
+            System.out.println("Реверс строки: " + obj);
 
-
-        } else if (n.equals("2")) {
-            FunctionalClass<Integer> factorialN = (t) -> {
-                int result = 1;
-                for (int i = 1; i <= t; i++)
-                    result = i * result;
-                return result;
-            };
-
+        } else if (n.equals("2")){
             System.out.println("Введите число");
-            int str = scanner.nextInt();
-            System.out.println(factorialN.getResult(str));
-
-        } else {
-            System.out.println("Wrong input");
+            String str = scanner.next();
+            Object obj2 = Calculate.getResultInputStr(n, str);
+            System.out.println("Факториал числа = "+ obj2 );
         }
+
+        scanner.close();
 
 
     }
